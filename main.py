@@ -7,7 +7,11 @@ import random
 
 log_path = './trigger.log'
 
+n = 50
+
 ng_words = ['@']
+remove_ja_words = []
+remove_en_words = ['tofubeat']
 tofu_ja_words = ['豆腐', 'とうふ', 'トウフ', 'と－ふ', 'トーフ']
 tofu_en_words = ['tofu', 'ｔｏｆｕ']
 fav_ja_words = ['いいね', '良いね', 'ライク', 'ふぁぼ', 'ファボ']
@@ -21,7 +25,6 @@ def trigger():
     output_datetime_to_logfile()
 
     api = get_twitter_auth_api()
-    n = 5
     # 最新n件のツイートを確認し、各機能にツイート情報を渡す
     for status in get_n_tweet(n, api):
         # [Tweepyのstatusリストで何が取れるのかわからなかったので、取り出してみた](https://qiita.com/Ryo87/items/61b5d54cbfd7ae520fe6)
@@ -87,7 +90,11 @@ def tofufav(status, api):
     fav_bomb_flag = False
 
     ja_text = ''.join(re.findall('[亜-熙ぁ-んァ-ヶ]+', status.text))
+    for remove_ja_word in remove_ja_words:
+        ja_text = ja_text.replace(remove_ja_word, '')
     en_text = ''.join(re.findall('[a-zａ-ｚ]+', status.text.lower()))
+    for remove_en_word in remove_en_words:
+        en_text = en_text.replace(remove_en_word, '')
 
     for tofu_ja_word in tofu_ja_words:
         if tofu_ja_word in ja_text:
