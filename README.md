@@ -3,7 +3,7 @@
 1. python
     * 3.8.2
 1. ライブラリのインストール
-    * `pip install r ./requirements.txt`
+    * `pip install -r ./requirements.txt`
 1. key.pyの作成
 1. botの実行
     * `python main.py`
