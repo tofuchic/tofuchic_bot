@@ -17,9 +17,9 @@ terraform {
 
 // Configure the Google Cloud provider
 provider "google" {
-  credentials = file("./tofuchicbot-terraform.json")
-  project     = "tofuchicbot"
-  region      = "asia-northeast1"
+  # credentials = file("./tofuchicbot-terraform.json")
+  project = "tofuchicbot"
+  region  = "asia-northeast1"
 }
 
 # provider "vault" {
