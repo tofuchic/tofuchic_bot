@@ -2,3 +2,6 @@ __pycache__
 key.py
 trigger.log
 venv
+
+# terraform実行用サービスアカウントのシークレット
+tofuchicbot-terraform.json
