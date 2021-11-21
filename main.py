@@ -89,7 +89,7 @@ def tofufav(status, api):
     tofu_flag = False
     fav_bomb_flag = False
 
-    ja_text = ''.join(re.findall('[亜-熙ぁ-んァ-ヶ]+', status.text))
+    ja_text = ''.join(re.findall('[一-龥ぁ-んァ-ヶ]+', status.text))
     for remove_ja_word in remove_ja_words:
         ja_text = ja_text.replace(remove_ja_word, '')
     en_text = ''.join(re.findall('[a-zａ-ｚ]+', status.text.lower()))
