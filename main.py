@@ -1,9 +1,11 @@
-import key
-import tweepy
-import os
-from datetime import datetime
-import re
 import random
+import re
+from datetime import datetime
+import os
+import tweepy
+import pytest
+
+key = pytest.importorskip('key')
 
 log_path = './trigger.log'
 
