@@ -1,7 +1,9 @@
 import base64
 from datetime import datetime
-
 import main
+import pytest
+
+key = pytest.importorskip('key')
 
 
 def test_init_logfile(capsys):
